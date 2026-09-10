@@ -22,6 +22,8 @@ const slides = [
 const arrow = document.querySelectorAll(".arrow");
 const flecheGauche = document.querySelector(".arrow_left");
 const flecheDroite = document.querySelector(".arrow_right");
+const dots = document.querySelector(".dots");
+
 /******** test arrow  ********/
 arrow.forEach((arrowElement) => {
   arrowElement.addEventListener("click", () => {
@@ -36,3 +38,13 @@ function testarrow(arrowElement) {
     console.log("test droite");
   }
 }
+/********* création bullet ********/
+slides.forEach((slidesElement, index) => {
+  let dot = document.createElement("li");
+  dot.classList.add("dot");
+  dots.appendChild(dot);
+  console.log(index);
+  if (index === 0) {
+    dot.classList.add("dot_selected");
+  }
+});
