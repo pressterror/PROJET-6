@@ -1,4 +1,0 @@
-relier dot.classList.add("dot_selected") a banneractive 
-etape 5
-bulletActive[ancienIndex].classList.toggle("dot_selected") 
-bulletActive[currentIndex].classList.toggle("dot_selected")

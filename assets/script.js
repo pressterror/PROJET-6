@@ -62,47 +62,51 @@ arrow.forEach((arrowElement) => {
 });
 
 function bannerActive(arrowElement) {
-  if (flecheGauche === arrowElement) {
-    if (currentIndex === 0) {
-      ancienIndex = currentIndex;
-      bulletActive[ancienIndex].classList.toggle("dot_selected");
-      currentIndex = 3;
-      bulletActive[currentIndex].classList.toggle("dot_selected");
-      let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
-      img.setAttribute("src", src);
-      console.log(src);
-      bannerTxt.innerHTML = slides[currentIndex].tagLine;
-    } else {
-      ancienIndex = currentIndex;
-      bulletActive[ancienIndex].classList.toggle("dot_selected");
-      currentIndex--;
-      bulletActive[currentIndex].classList.toggle("dot_selected");
-      let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
-      img.setAttribute("src", src);
-      console.log(src);
-      bannerTxt.innerHTML = slides[currentIndex].tagLine;
+  img.style.opacity = "0";
+  setTimeout(() => {
+    if (flecheGauche === arrowElement) {
+      if (currentIndex === 0) {
+        ancienIndex = currentIndex;
+        bulletActive[ancienIndex].classList.toggle("dot_selected");
+        currentIndex = 3;
+        bulletActive[currentIndex].classList.toggle("dot_selected");
+        let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
+        img.setAttribute("src", src);
+        console.log(src);
+        bannerTxt.innerHTML = slides[currentIndex].tagLine;
+      } else {
+        ancienIndex = currentIndex;
+        bulletActive[ancienIndex].classList.toggle("dot_selected");
+        currentIndex--;
+        bulletActive[currentIndex].classList.toggle("dot_selected");
+        let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
+        img.setAttribute("src", src);
+        console.log(src);
+        bannerTxt.innerHTML = slides[currentIndex].tagLine;
+      }
+    } else if (flecheDroite === arrowElement) {
+      if (currentIndex < 3) {
+        ancienIndex = currentIndex;
+        bulletActive[ancienIndex].classList.toggle("dot_selected");
+        currentIndex++;
+        bulletActive[currentIndex].classList.toggle("dot_selected");
+        let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
+        img.setAttribute("src", src);
+        console.log(src);
+        bannerTxt.innerHTML = slides[currentIndex].tagLine;
+      } else {
+        ancienIndex = currentIndex;
+        bulletActive[ancienIndex].classList.toggle("dot_selected");
+        currentIndex = 0;
+        bulletActive[currentIndex].classList.toggle("dot_selected");
+        let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
+        img.setAttribute("src", src);
+        console.log(src);
+        bannerTxt.innerHTML = slides[currentIndex].tagLine;
+      }
     }
-  } else if (flecheDroite === arrowElement) {
-    if (currentIndex < 3) {
-      ancienIndex = currentIndex;
-      bulletActive[ancienIndex].classList.toggle("dot_selected");
-      currentIndex++;
-      bulletActive[currentIndex].classList.toggle("dot_selected");
-      let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
-      img.setAttribute("src", src);
-      console.log(src);
-      bannerTxt.innerHTML = slides[currentIndex].tagLine;
-    } else {
-      ancienIndex = currentIndex;
-      bulletActive[ancienIndex].classList.toggle("dot_selected");
-      currentIndex = 0;
-      bulletActive[currentIndex].classList.toggle("dot_selected");
-      let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
-      img.setAttribute("src", src);
-      console.log(src);
-      bannerTxt.innerHTML = slides[currentIndex].tagLine;
-    }
-  }
+    img.style.opacity = "1";
+  }, 400);
 }
 
 /********** test bullet actuelle  *********/
