@@ -203,46 +203,6 @@ header {
   object-fit: cover;
   object-position: center;
 }
-/* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
-/* Gestion des fleches du carrousel */
-#banner .arrow {
-  position: absolute;
-}
-#banner .arrow_left {
-  left: 30px;
-}
-#banner .arrow_right {
-  right: 30px;
-}
-#banner .arrow_left:hover,
-#banner .arrow_right:hover {
-  cursor: pointer;
-}
-/* trasitio carrousel */
-.banner-img,
-#banner p,
-#banner p span {
-  transition: opacity 1s;
-}
-/* Gestion des points du carrousel */
-.dots {
-  position: absolute;
-  bottom: 40px;
-  display: flex;
-}
-.dot {
-  margin-inline: 5px;
-  width: 13px;
-  height: 13px;
-  background-color: #ffffff00;
-  border: 3px solid red;
-  border-radius: 100%;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-}
-.dot_selected {
-  background-color: blue;
-}
-/* Fin du code CSS pour le carousel */
 #banner p {
   font-family: "Roboto Slab", sans-serif;
   font-weight: 900;
@@ -380,6 +340,47 @@ footer div {
   font-weight: 700;
   font-size: 16px;
 }
+
+/****************************** CAROUSSEL*****************************/
+/*******************  gestion des flèche    ***************/
+#banner .arrow {
+  position: absolute;
+}
+#banner .arrow_left {
+  left: 30px;
+}
+#banner .arrow_right {
+  right: 30px;
+}
+#banner .arrow_left:hover,
+#banner .arrow_right:hover {
+  cursor: pointer;
+}
+/********** transition carrousel ***********/
+.banner-img,
+#banner p,
+#banner p span {
+  transition: opacity 1s;
+}
+/*********** Gestion des points du carrousel ***********/
+.dots {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+}
+.dot {
+  margin-inline: 5px;
+  width: 13px;
+  height: 13px;
+  background-color: #ffffff00;
+  border: 3px solid red;
+  border-radius: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.dot_selected {
+  background-color: blue;
+}
+/* Fin du code CSS pour le carousel */
 
 @media all and (max-width: 1250px) {
   #contact > article {

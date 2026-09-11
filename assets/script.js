@@ -1,4 +1,4 @@
-/********** déclaration ********/
+/********** déclaration const ********/
 const slides = [
   {
     image: "slide1.jpg",
@@ -23,21 +23,12 @@ const arrow = document.querySelectorAll(".arrow");
 const flecheGauche = document.querySelector(".arrow_left");
 const flecheDroite = document.querySelector(".arrow_right");
 const dots = document.querySelector(".dots");
+const img = document.querySelector(".banner-img");
+const bannerTxt = document.querySelector("#banner p");
+/************ declaration let ************/
+let currentIndex = 0;
+let ancienIndex = currentIndex;
 
-/******** test arrow  ********/
-arrow.forEach((arrowElement) => {
-  arrowElement.addEventListener("click", () => {
-    testarrow(arrowElement);
-  });
-});
-
-function testarrow(arrowElement) {
-  if (flecheGauche === arrowElement) {
-    console.log("test gauche");
-  } else if (flecheDroite === arrowElement) {
-    console.log("test droite");
-  }
-}
 /********* création bullet ********/
 slides.forEach((slidesElement, index) => {
   let dot = document.createElement("li");
@@ -47,24 +38,21 @@ slides.forEach((slidesElement, index) => {
     dot.classList.add("dot_selected");
   }
 });
-
-/******* zonetest ******/
-let currentIndex = 0;
-let ancienIndex = currentIndex;
-const img = document.querySelector(".banner-img");
-const bannerTxt = document.querySelector("#banner p");
-
+let bulletActive = document.querySelectorAll(".dots li");
+/**************** lanceur carrousel ****************/
 arrow.forEach((arrowElement) => {
   arrowElement.addEventListener("click", () => {
-    testarrow(arrowElement);
     bannerActive(arrowElement);
   });
 });
-
+/********************  fonction carrousel  *******************/
 function bannerActive(arrowElement) {
+  /*****effet transition debut ****/
   img.style.opacity = "0";
   setTimeout(() => {
+    /********************************/
     if (flecheGauche === arrowElement) {
+      /*si click a gauche sur slide1 affiche slide4*/
       if (currentIndex === 0) {
         ancienIndex = currentIndex;
         bulletActive[ancienIndex].classList.toggle("dot_selected");
@@ -95,6 +83,7 @@ function bannerActive(arrowElement) {
         console.log(src);
         bannerTxt.innerHTML = slides[currentIndex].tagLine;
       } else {
+        /** si click a droite sur slides 4 retour au slide 1 **/
         ancienIndex = currentIndex;
         bulletActive[ancienIndex].classList.toggle("dot_selected");
         currentIndex = 0;
@@ -105,12 +94,8 @@ function bannerActive(arrowElement) {
         bannerTxt.innerHTML = slides[currentIndex].tagLine;
       }
     }
+    /*****effet transition fin ****/
     img.style.opacity = "1";
   }, 400);
+  /********************************/
 }
-
-/********** test bullet actuelle  *********/
-let bulletActive = document.querySelectorAll(".dots li");
-bulletActive.forEach((bullet) => {
-  console.log(bullet);
-});
