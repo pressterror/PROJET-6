@@ -43,7 +43,6 @@ slides.forEach((slidesElement, index) => {
   let dot = document.createElement("li");
   dot.classList.add("dot");
   dots.appendChild(dot);
-  console.log(index);
   if (index === 0) {
     dot.classList.add("dot_selected");
   }
@@ -63,17 +62,33 @@ arrow.forEach((arrowElement) => {
 
 function bannerActive(arrowElement) {
   if (flecheGauche === arrowElement) {
-    currentIndex--;
-    let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
-    img.setAttribute("src", src);
-    console.log(src);
-    bannerTxt.innerHTML = slides[currentIndex].tagLine;
+    if (currentIndex === 0) {
+      currentIndex = 3;
+      let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
+      img.setAttribute("src", src);
+      console.log(src);
+      bannerTxt.innerHTML = slides[currentIndex].tagLine;
+    } else {
+      currentIndex--;
+      let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
+      img.setAttribute("src", src);
+      console.log(src);
+      bannerTxt.innerHTML = slides[currentIndex].tagLine;
+    }
   } else if (flecheDroite === arrowElement) {
-    currentIndex++;
-    let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
-    img.setAttribute("src", src);
-    console.log(src);
-    bannerTxt.innerHTML = slides[currentIndex].tagLine;
+    if (currentIndex < 3) {
+      currentIndex++;
+      let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
+      img.setAttribute("src", src);
+      console.log(src);
+      bannerTxt.innerHTML = slides[currentIndex].tagLine;
+    } else {
+      currentIndex = 0;
+      let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
+      img.setAttribute("src", src);
+      console.log(src);
+      bannerTxt.innerHTML = slides[currentIndex].tagLine;
+    }
   }
 }
 
