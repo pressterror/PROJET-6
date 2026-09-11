@@ -50,6 +50,7 @@ slides.forEach((slidesElement, index) => {
 
 /******* zonetest ******/
 let currentIndex = 0;
+let ancienIndex = currentIndex;
 const img = document.querySelector(".banner-img");
 const bannerTxt = document.querySelector("#banner p");
 
@@ -63,13 +64,19 @@ arrow.forEach((arrowElement) => {
 function bannerActive(arrowElement) {
   if (flecheGauche === arrowElement) {
     if (currentIndex === 0) {
+      ancienIndex = currentIndex;
+      bulletActive[ancienIndex].classList.toggle("dot_selected");
       currentIndex = 3;
+      bulletActive[currentIndex].classList.toggle("dot_selected");
       let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
       img.setAttribute("src", src);
       console.log(src);
       bannerTxt.innerHTML = slides[currentIndex].tagLine;
     } else {
+      ancienIndex = currentIndex;
+      bulletActive[ancienIndex].classList.toggle("dot_selected");
       currentIndex--;
+      bulletActive[currentIndex].classList.toggle("dot_selected");
       let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
       img.setAttribute("src", src);
       console.log(src);
@@ -77,13 +84,19 @@ function bannerActive(arrowElement) {
     }
   } else if (flecheDroite === arrowElement) {
     if (currentIndex < 3) {
+      ancienIndex = currentIndex;
+      bulletActive[ancienIndex].classList.toggle("dot_selected");
       currentIndex++;
+      bulletActive[currentIndex].classList.toggle("dot_selected");
       let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
       img.setAttribute("src", src);
       console.log(src);
       bannerTxt.innerHTML = slides[currentIndex].tagLine;
     } else {
+      ancienIndex = currentIndex;
+      bulletActive[ancienIndex].classList.toggle("dot_selected");
       currentIndex = 0;
+      bulletActive[currentIndex].classList.toggle("dot_selected");
       let src = `./assets/images/slideshow/${slides[currentIndex].image}`;
       img.setAttribute("src", src);
       console.log(src);
@@ -92,4 +105,8 @@ function bannerActive(arrowElement) {
   }
 }
 
-/********** *********/
+/********** test bullet actuelle  *********/
+let bulletActive = document.querySelectorAll(".dots li");
+bulletActive.forEach((bullet) => {
+  console.log(bullet);
+});
