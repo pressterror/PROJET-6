@@ -39,6 +39,7 @@ slides.forEach((slidesElement, index) => {
   }
 });
 let bulletActive = document.querySelectorAll(".dots li");
+
 /**************** lanceur carrousel ****************/
 arrow.forEach((arrowElement) => {
   arrowElement.addEventListener("click", () => {
